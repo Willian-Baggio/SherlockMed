@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('clinicas_medicas', {
+    await queryInterface.createTable('clinicas', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -16,24 +16,17 @@ module.exports = {
         type: Sequelize.STRING
       },
       cnpj: {
-        type: Sequelize.STRING,
-        unique: true
-      },
-      especialidade_medica_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'especialidades_medicas',
-          key: 'id'
-        },
+        type: Sequelize.STRING
       },
       convenio_id: {
-        type: Sequelize.INTEGER,
         allowNull: false,
-        references: {
-          model: 'convenios',
-          key: 'id'
-        },
+        type: Sequelize.INTEGER,
+        references: { model: 'convenios', key: 'id' }
+      },
+      especialidade_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: 'especialidades', key: 'id' }
       },
       endereco: {
         type: Sequelize.STRING
@@ -70,6 +63,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('clinicas_medicas');
+    await queryInterface.dropTable('clinicas');
   }
 };

@@ -3,41 +3,37 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-
-    await queryInterface.bulkInsert('especialidades_medicas', [
+    await queryInterface.bulkInsert('especialidades', [
       {
-        especialidade: 'ortopedia',
+        especialidade: 'Ortopedia',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        especialidade: 'cardiologia',
+        especialidade: 'Odontologia',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        especialidade: 'gia 3' ,
+        especialidade: 'Cardiologia',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        especialidade: 'gia 4' ,
+        especialidade: 'Pediatria',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        especialidade: 'gia 5' ,
+        especialidade: 'Oftalmologia',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
-
     ], {});
-    
+
   },
 
   async down (queryInterface, Sequelize) {
-    
-    await queryInterface.bulkDelete('especialidades_medicas', null, {});
-     
+    await queryInterface.bulkDelete('especialidades', null, {});
   }
 };
