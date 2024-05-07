@@ -6,10 +6,10 @@ module.exports = (sequelize, DataTypes) => {
   class Clinica extends Model {
     static associate(models) {
       Clinica.hasMany(models.Convenio, {
-        foreignKey: 'convenio_id'
+        foreignKey: 'id'
       })
       Clinica.hasMany(models.Especialidade, {
-        foreignKey: 'especialidade_id'
+        foreignKey: 'id'
       })
     }
   }
@@ -17,6 +17,8 @@ module.exports = (sequelize, DataTypes) => {
     nome: DataTypes.STRING,
     crm: DataTypes.STRING,
     cnpj: DataTypes.STRING,
+    convenio_id: DataTypes.INTEGER,
+    especialidade_id: DataTypes.INTEGER,
     endereco: DataTypes.STRING,
     horarioFuncionamento: DataTypes.STRING,
     telefone1: DataTypes.STRING,
@@ -28,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Clinica',
-    tableName: 'convenios'
+    tableName: 'clinicas'
   });
   return Clinica;
 };
