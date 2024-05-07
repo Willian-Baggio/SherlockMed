@@ -1,15 +1,15 @@
 const express = require('express');
 const usuarios = require('./usuarioRoute.js');
-const clinicaMedica = require('./clinicaMedicaRoute.js');
+// const clinica = require('./clinicaRoute.js');
 const convenio = require('./convenioRoute.js');
-const especialidadeMedica = require('./especialidadeMedicaRoute.js');
+// const especialidade = require('./especialidadeRoute.js');
 
 module.exports = app => {
     app.use(
         express.json(),
         usuarios,
-        clinicaMedica,
+        // clinica,
         convenio,
-        especialidadeMedica
+        // especialidade
     );
 };
