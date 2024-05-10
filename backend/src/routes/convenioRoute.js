@@ -3,10 +3,6 @@ const ConvenioController = require('../controllers/ConvenioController.js');
 
 const convenioController = new ConvenioController();
 
-// const UsuarioController = require('../controllers/UsuarioController.js');
-
-// const usuarioController = new UsuarioController();
-
 const router = Router();
 
 router.get('/convenio', (req, res) => convenioController.pegaTodos(req, res));
